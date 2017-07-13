@@ -30,6 +30,10 @@ export class RecipeService {
 
   constructor(private shoppingListService: ShoppingListService) {}
 
+  initRecipes(fetchedrecipes: Recipe[]) {
+    this.recipes = fetchedrecipes;
+    this.recipeChanged.next(this.recipes.slice());
+  }
 
   getRecipes() {
     // slice가 없으면 배열에 직접 접근함

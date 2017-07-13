@@ -79,6 +79,8 @@ export class RecipeEditComponent implements OnInit, OnDestroy {
       });
     }
     console.log(this.recipeForm.value);
+
+    this.onCancel();
   }
 
   onAddIngredient() {
@@ -92,15 +94,17 @@ export class RecipeEditComponent implements OnInit, OnDestroy {
   }
 
   onCancel() {
-    if (this.editMode) {
-      this.router.navigate(
-        ['/recipes', this.id]
-      );
-    } else {
-      this.router.navigate(
-        ['/recipes']
-      );
-    }
+    // if (this.editMode) {
+    //   this.router.navigate(
+    //     ['/recipes', this.id]
+    //   );
+    // } else {
+    //   this.router.navigate(
+    //     ['/recipes']
+    //   );
+    // }
+
+    this.router.navigate(['../'], {relativeTo: this.route});
   }
 
   ngOnDestroy() {
